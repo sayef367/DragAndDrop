@@ -1,7 +1,7 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
-const SortableImage = ({ handleClick, images, colStyle, id}) => {
+const SortableImage = ({ images, colStyle, id}) => {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: images.id });
   const style = { transition, transform: CSS.Transform.toString(transform) };
 
@@ -11,8 +11,6 @@ const SortableImage = ({ handleClick, images, colStyle, id}) => {
       <div className="top">
         <input 
           type='checkbox' 
-          value={id}
-          onChange={ handleClick }
         />
       </div>
     </div>

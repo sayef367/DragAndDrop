@@ -6,7 +6,6 @@ import { arrayMove, SortableContext, verticalListSortingStrategy } from "@dnd-ki
 
 const DragEndDrop = () => {
   const [images, setImages] = useState(data);
-  const [hideShow, sethideShow] = useState(false);
 
   const onDragEnd = (event) => {
     const { active, over } = event;
@@ -20,53 +19,29 @@ const DragEndDrop = () => {
     });
   };
 
-  const handleClick = (e) => {
-    const { id } = e.target
-    console.log(id)
-    
-    // setSelect(click);
-  };
-
   return (
     <div className="mt-4">
       <div className="container border border-2 rounded-3">
-        {
-          hideShow ? 
-          <div className="row p-3 justify-content-center border-bottom">
-            <div className="col-5">
-              <h5>Files Selected</h5>
-            </div>
-            <div className="col-5">
-              <h5 className="text-end text-danger">Delete file</h5>
-            </div>
-          </div>
-          :
-          <div className="row p-3 justify-content-center border-bottom">
-            <div className="col-5">
-              <h5>Gallery</h5>
-            </div>
-            <div className="col-5">
-              <h5 className="text-end text-danger"></h5>
-            </div>
-          </div>
-        }
+        <div className="row p-3 justify-content-center border-bottom">
+          <h5>Gallery</h5>
+        </div>
         <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
           <SortableContext items={images} strategy={verticalListSortingStrategy}>
             <div className="row justify-content-center pt-3 pb-3">
-              <SortableImage handleClick={handleClick} images={images[0]} colStyle={'col-4 firstimg'} id={0} />
+              <SortableImage images={images[0]} colStyle={'col-4 firstimg'} id={0} />
               <div className="col-6 row">
-                <SortableImage handleClick={handleClick} images={images[1]} colStyle={'col-4'} id={1} />
-                <SortableImage handleClick={handleClick} images={images[2]} colStyle={'col-4'} id={2} />
-                <SortableImage handleClick={handleClick} images={images[3]} colStyle={'col-4'} id={3} />
-                <SortableImage handleClick={handleClick} images={images[4]} colStyle={'col-4'} id={4} />
-                <SortableImage handleClick={handleClick} images={images[5]} colStyle={'col-4'} id={5} />
-                <SortableImage handleClick={handleClick} images={images[6]} colStyle={'col-4'} id={6} />
+                <SortableImage images={images[1]} colStyle={'col-4'} id={1} />
+                <SortableImage images={images[2]} colStyle={'col-4'} id={2} />
+                <SortableImage images={images[3]} colStyle={'col-4'} id={3} />
+                <SortableImage images={images[4]} colStyle={'col-4'} id={4} />
+                <SortableImage images={images[5]} colStyle={'col-4'} id={5} />
+                <SortableImage images={images[6]} colStyle={'col-4'} id={6} />
               </div>
               <div className="col-12 row justify-content-center">
-                <SortableImage handleClick={handleClick} images={images[7]} colStyle={'col-2'} id={7} />
-                <SortableImage handleClick={handleClick} images={images[8]} colStyle={'col-2'} id={8} />
-                <SortableImage handleClick={handleClick} images={images[9]} colStyle={'col-2'} id={9} />
-                <SortableImage handleClick={handleClick} images={images[10]} colStyle={'col-2'} id={10} />
+                <SortableImage images={images[7]} colStyle={'col-2'} id={7} />
+                <SortableImage images={images[8]} colStyle={'col-2'} id={8} />
+                <SortableImage images={images[9]} colStyle={'col-2'} id={9} />
+                <SortableImage images={images[10]} colStyle={'col-2'} id={10} />
                 <div className="col-2 lastBox" >
                   <div className="text-center text-secondary-emphasis">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-card-image" viewBox="0 0 16 16">
